@@ -1,0 +1,6 @@
+[submodule "flask_api"]
+	path = flask_api
+	url = git@github.com:xeanm28x/flask_api.git
+[submodule "microservico-qr"]
+	path = microservico-qr
+	url = git@github.com:xeanm28x/microservico-qr.git

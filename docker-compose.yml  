@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  flask_api:
+    build:
+      context: ./flask_api  # Caminho relativo para o Dockerfile e arquivos da API
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=development
+      - MICRO_QR_SERVICE_URL=http://microservico_qr:5000
+      - RABBITMQ_URL=amqp://rabbitmq
+    depends_on:
+      - microservico_qr
+      - rabbitmq
+
+  microservico_qr:
+    build:
+      context: ./microservico_qr  # Caminho relativo para o Dockerfile e arquivos do micro serviço
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - RABBITMQ_URL=amqp://rabbitmq
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"    # Porta padrão para o RabbitMQ
+      - "15672:15672"  # Porta da interface de gerenciamento do RabbitMQ
