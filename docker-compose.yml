@@ -16,7 +16,7 @@ services:
 
   microservico_qr:
     build:
-      context: ./microservico_qr  # Caminho relativo para o Dockerfile e arquivos do micro serviço
+      context: ./microservico-qr  # Caminho relativo para o Dockerfile e arquivos do micro serviço
     ports:
       - "5000:5000"
     environment:
