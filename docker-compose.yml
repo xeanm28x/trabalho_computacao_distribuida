@@ -36,3 +36,5 @@ services:
       - "15672:15672"  # Porta da interface de gerenciamento do RabbitMQ
 volumes:
   rabbitmq_data:
+  flask_api_data:
+  microservico_qr_data:
