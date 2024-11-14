@@ -26,6 +26,7 @@ Verifique o arquivo docker-compose.yml. Esse arquivo orquestra os três serviço
 
 2. Inicie os serviços com o Docker Compose:
    ```bash
+   docker-compose build
    docker-compose up
 
 3. Acessando a Aplicação
