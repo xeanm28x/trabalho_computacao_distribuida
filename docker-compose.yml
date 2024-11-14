@@ -13,6 +13,8 @@ services:
     depends_on:
       - microservico_qr
       - rabbitmq
+    volumes:
+      - ./flask_api_data:/data
 
   microservico_qr:
     build:
@@ -24,9 +26,13 @@ services:
       - RABBITMQ_URL=amqp://rabbitmq
     depends_on:
       - rabbitmq
+    volumes:
+      - ./microservico_qr_data:/data
 
   rabbitmq:
     image: rabbitmq:3-management
     ports:
       - "5672:5672"    # Porta padrão para o RabbitMQ
       - "15672:15672"  # Porta da interface de gerenciamento do RabbitMQ
+volumes:
+  rabbitmq_data:
